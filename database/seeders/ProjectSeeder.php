@@ -26,8 +26,7 @@ class ProjectSeeder extends Seeder
             $new_project->name = $faker->name();
             $new_project->admin = $faker->name();
             $new_project->bio = $faker->paragraph();
-            $new_project->thumb = ('	
-            https://api.lorem.space/image/movie?w=150&amp;amp;amp;amp;h=220');
+            $new_project->thumb = ('https://api.lorem.space/image/movie?w=150&amp;amp;amp;amp;h=220');
             $new_project->type_id = $faker->optional()->randomElement($ids);
             $new_project->save();
         }

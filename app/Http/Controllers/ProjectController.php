@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Models\Project;
-use App\Http\Requests\StoreProjectRequest;
-use App\Http\Requests\UpdateProjectRequest;
-use Illuminate\View\View;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
+
 
 class ProjectController extends Controller
 {
@@ -17,6 +19,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        //$data = $request->all();
+        //$query = Project::limit(20);
+
         $projects = Project::all();
         return view('projects.index', compact('projects'));
     }
@@ -34,18 +39,20 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
+        $project = Project::create($data);
+        // $project = Project::create($data);
+        // $newProject = new Project();
+        // $newProject->name = $data['name'];
+        // $newProject->bio = $data['bio'];
+        // $newProject->type = $data['type'];
+        // $newProject->admin = $data['admin'];
+        // $newProject->thumb = $data['thumb'];
+        // $newProject->save();
 
-        $newProject = new Project();
-        $newProject->name = $data['name'];
-        $newProject->bio = $data['bio'];
-        $newProject->type = $data['type'];
-        $newProject->admin = $data['admin'];
-        $newProject->save();
-
-        return redirect()->route('projects.show', $newProject->id);
+        return redirect()->route('projects.show', $project);
     }
 
     /**

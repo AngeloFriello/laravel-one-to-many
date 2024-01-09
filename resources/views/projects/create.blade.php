@@ -32,6 +32,11 @@
             </div>
 
             <div>
+                <label for="thumb" class="form-label">thumb</label>
+                <input type="text" class="form-control" name="thumb" id="thumb" placeholder="thumb">
+            </div>
+
+            <div>
                 <input type="submit" class="btn btn-primary mt-4" value="crea">
             </div>
        </form>

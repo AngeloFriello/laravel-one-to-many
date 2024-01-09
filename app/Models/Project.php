@@ -13,6 +13,7 @@ class Project extends Model
         'name',
         'bio',
         'admin',
+        'thumb',
         'type_id',
     ];
 
