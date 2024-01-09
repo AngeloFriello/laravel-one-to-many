@@ -12,14 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('type');
-            $table->string('name');
-            $table->string('admin');
-            $table->text('bio');
-            $table->string('thumb');
+            
+            $table->unsignedBigInteger('type-id')->nullable()->after('id');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('set null')->onUpdate('cascade');
         });
+          
     }
 
     /**
@@ -27,6 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::table('projects', function (Blueprint $table)
+        {
+            $table->dropForeign(['type_id']);
+            
+            $table->dropColumn('type_id');
+        });
     }
 };

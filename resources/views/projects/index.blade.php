@@ -14,6 +14,7 @@
                         <li>{{$project->type}}</li>
                         <li>{{$project->bio}}</li>
                         <li>{{$project->admin}}</li>
+                        
                         <span><a href="{{route('projects.edit', $project)}}" class="btn btn-primary my-3">Edit</a></span>
                         <form action="{{route('projects.destroy', $project)}}" method="POST">
                             @csrf

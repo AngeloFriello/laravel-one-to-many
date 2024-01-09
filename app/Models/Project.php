@@ -13,6 +13,12 @@ class Project extends Model
         'name',
         'bio',
         'type',
-        'admin'
+        'admin',
+        'type_id',
     ];
+
+    public function type()
+    {
+        return $this->hasMany(Type::class);
+    }
 }
