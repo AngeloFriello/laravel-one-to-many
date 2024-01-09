@@ -1,0 +1,24 @@
+@import '~bootstrap/scss/bootstrap';
+
+li,ul{
+    list-style: none;
+};
+
+a{
+    text-decoration: none;
+
+}
+
+
+
+.container{
+    
+    .card{
+        box-shadow: 10px 10px 20px #727272;
+        width: 32%;
+    }
+}
+
+.img-container{
+    margin: 30px auto;
+}
