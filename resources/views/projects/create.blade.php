@@ -17,8 +17,13 @@
             </div>
 
             <div>
-                <label for="type" class="form-label">type</label>
-                <input type="text" class="form-control" name="type" id="type" placeholder="type">
+                <label for="type_id" class="form-label">type</label>
+                <select name="type_id" class="form-control" id="type_id">
+                    <option>Seleziona una tipologia</option>
+                    @foreach($types as $type)
+                      <option @selected( old('type_id') == $type->id ) value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
+                  </select>
             </div>
 
             <div>

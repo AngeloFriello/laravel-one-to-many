@@ -9,7 +9,7 @@
             <div>
                 <ul>
                     <li><a href="{{route('projects.show', $project)}}">{{$project->name}}</a></li>
-                    <li>{{$project->type}}</li>
+                    
                     <li>{{$project->bio}}</li>
                     <li>{{$project->admin}}</li>
                     <span><a href="{{route('projects.edit', $project)}}" class="btn btn-primary my-3">Edit</a></span>
